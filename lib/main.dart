@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:quizapp/question.dart';
 import 'package:quizapp/answer.dart';
 
-void main() => runApp(MyApp());
+void main()=>
+  runApp(MyApp());
+
 
 class MyApp extends StatefulWidget {
   @override
@@ -25,7 +27,24 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    var questions = ['Q1 2*5', 'Q2 25 /  5 ', 'Q3  4 * 9 ', 'Q4  8 * 7 '];
+    var questions = [
+      {
+        'questionkey': ' what is muhet the earth',
+        'answera': ['10', '485', '555', '4000']
+      },
+      {
+        'questionkey': ' what is favrit colors',
+        'answera': ['red', 'blue', 'black', 'yellow']
+      },
+      {
+        'questionkey': 'what is the better  in syria',
+        'answera': ['idleb', 'sham', 'homus', 'hama']
+      },
+      {
+        'questionkey': '    8 + 5 * 2 ',
+        'answera': ['18', '5', '9', '8']
+      }
+    ];
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -33,12 +52,10 @@ class _MyAppState extends State<MyApp> {
         ),
         body: Column(
           children: [
-            Question(questions[questionIndex]),
-            Answer(answerQuestion),
-            Answer(answerQuestion),
-            Answer(answerQuestion),
-            Answer(answerQuestion),
-            Answer(answerQuestion),
+            Question(questions[questionIndex]['questionkey'] as String),
+            ...(questions[questionIndex]['answera'] as List<String>).map((e) {
+              return Answer(e, answerQuestion);
+            }).toList()
           ],
         ),
       ),

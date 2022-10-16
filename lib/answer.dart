@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 class Answer extends StatelessWidget {
   Function()? selectedHandler;
 
-  Answer(this.selectedHandler);
+  String answertext = '';
+
+  Answer(this.answertext, this.selectedHandler);
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +13,7 @@ class Answer extends StatelessWidget {
       margin: EdgeInsets.only(top: 10),
       child: ElevatedButton(
         onPressed: selectedHandler,
-        child: Text('Answer 555 '),
+        child: Text(answertext),
       ),
     );
   }
