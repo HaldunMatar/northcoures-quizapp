@@ -13,27 +13,51 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   int questionIndex = 0;
+  var totalScore = 0;
 
   var questions = [
     {
-      'questionkey': ' what is muhet the earth',
-      'answer': ['10', '485', '555', '4000']
+      'questionkey': ' 1  what is muhet the earth',
+      'answer': [
+        {'text': '20', 'score': 0},
+        {'text': '58', 'score': 0},
+        {'text': '855', 'score': 0},
+        {'text': '4000', 'score': 10}
+      ]
     },
     {
-      'questionkey': ' what is favrit colors',
-      'answer': ['red', 'blue', 'black', 'yellow']
+      'questionkey': ' 2  what is muhet the earth',
+      'answer': [
+        {'text': '20', 'score': 10},
+        {'text': '58', 'score': 0},
+        {'text': '855', 'score': 0},
+        {'text': '10', 'score': 0}
+      ]
     },
     {
-      'questionkey': 'what is the better  in syria',
-      'answer': ['idleb', 'sham', 'homus', 'hama']
+      'questionkey': ' 3  what is muhet the earth',
+      'answer': [
+        {'text': '20', 'score': 0},
+        {'text': '58', 'score': 0},
+        {'text': '855', 'score': 10},
+        {'text': '10', 'score': 0}
+      ]
     },
     {
-      'questionkey': '    8 + 5 * 2 ',
-      'answer': ['18', '5', '9', '8']
+      'questionkey': ' 4  what is muhet the earth',
+      'answer': [
+        {'text': '20', 'score': 10},
+        {'text': '58', 'score': 0},
+        {'text': '855', 'score': 0},
+        {'text': '10', 'score': 0}
+      ]
     }
   ];
 
-  void answerQuestion() {
+  void answerQuestion(int score) {
+    totalScore += score;
+
+    print(totalScore);
     if (questionIndex < questions.length) {
       print('we have more question');
       setState(() {
@@ -49,6 +73,12 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    var list1 = ['muhand', 'khaled'];
+
+    list1.map((e) {
+      return Container();
+    });
+
     return MaterialApp(
       home: Scaffold(
           appBar: AppBar(
