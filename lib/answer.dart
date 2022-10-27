@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 
 class Answer extends StatelessWidget {
-  Function selectedHandler;
+  Function answerQuestion;
 
   String answertext = '';
 
   int score = 0;
 
-  Answer(this.answertext, this.selectedHandler, this.score);
+  Answer(this.answertext, this.answerQuestion, this.score);
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class Answer extends StatelessWidget {
       margin: EdgeInsets.only(top: 10),
       child: ElevatedButton(
         onPressed: () {
-          selectedHandler(score);
+          answerQuestion(score);
         },
         child: Text(answertext),
       ),

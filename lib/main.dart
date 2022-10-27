@@ -54,6 +54,13 @@ class _MyAppState extends State<MyApp> {
     }
   ];
 
+  void reset() {
+    setState(() {
+      questionIndex = 0;
+      totalScore = 0;
+    });
+  }
+
   void answerQuestion(int score) {
     totalScore += score;
 
@@ -73,12 +80,6 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    var list1 = ['muhand', 'khaled'];
-
-    list1.map((e) {
-      return Container();
-    });
-
     return MaterialApp(
       home: Scaffold(
           appBar: AppBar(
@@ -86,7 +87,7 @@ class _MyAppState extends State<MyApp> {
           ),
           body: questionIndex < questions.length
               ? Quiz(questions, questionIndex, answerQuestion)
-              : Result()),
+              : Result(totalScore, reset)),
     );
   }
 }
